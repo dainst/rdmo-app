@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: rdmo
+      POSTGRES_PASSWORD: rdmo
+      POSTGRES_DB: rdmo
+
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
