@@ -19,7 +19,7 @@ SECRET_KEY = 'this is not a very secret key'
 The list of URLs und which this application available
 '''
 
-ALLOWED_HOSTS = ['localhost', 'ip6-localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['rdmo.test.idai.world', 'localhost', 'ip6-localhost', '127.0.0.1', '[::1]']
 
 '''
 The root url of your application, only needed when its not '/'
@@ -38,34 +38,16 @@ The database connection to be used, see also:
 http://rdmo.readthedocs.io/en/latest/configuration/databases.html
 '''
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '',
-#         'USER': '',
-#         'PASSWORD': '',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': '',
-#         'USER': '',
-#         'PASSWORD': '',
-#         'HOST': '',
-#         'PORT': '',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': '',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'rdmo',
+        'USER': 'rdmo',
+        'PASSWORD': 'rdmo',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
 '''
 E-Mail configuration, see also:
