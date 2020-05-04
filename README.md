@@ -24,6 +24,7 @@ or docker compose on the test server.
 Run the following commands inside the running web container
 in order to complete the setup and create the admin user:
 
+    python manage.py migrate  
     python manage.py setup_groups
     python manage.py createsuperuser
 
