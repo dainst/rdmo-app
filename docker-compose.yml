@@ -34,9 +34,9 @@ services:
     volumes:
         - db-backups:/backups
     links:
-        - postgres
+        - db
     depends_on:
-        - postgres
+        - db
     environment:
         - POSTGRES_HOST=db
         - POSTGRES_DB=rdmo
