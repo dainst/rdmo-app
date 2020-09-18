@@ -10,16 +10,19 @@ This repository can be used to test RDMO with docker.
     cp settings/sample.local.py settings/local.py
     docker-compose up
 
-# Run on test environment
+# Run on test / prod environment
 
 Make sure the latest version with the latest settings in
 settings/local.py is published on dockerhub by running:
 
     docker-compose build web
-    docker-compose publish web
+    docker-compose push web
 
 Use docker-compose.test.yml to run RDMO with docker swarm
 or docker compose on the test server.
+
+Use docker-compose.prod.yml to run RDMO with docker swarm
+or docker compose on the production server.
 
 Run the following commands inside the running web container
 in order to complete the setup and create the admin user:

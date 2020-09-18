@@ -19,7 +19,7 @@ SECRET_KEY = 'this is not a very secret key'
 The list of URLs und which this application available
 '''
 
-ALLOWED_HOSTS = ['rdmo.test.idai.world', 'localhost', 'ip6-localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['rdmo.idai.world', 'rdmo.test.idai.world', 'localhost', 'ip6-localhost', '127.0.0.1', '[::1]']
 
 '''
 The root url of your application, only needed when its not '/'
