@@ -1,0 +1,56 @@
+version: '3.5'
+
+services:
+  
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: rdmo
+      POSTGRES_PASSWORD: rdmo
+      POSTGRES_DB: rdmo
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    image: dainst/rdmo
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - default
+      - web
+    deploy:
+      labels:
+        - "traefik.docker.network=web"
+        - "traefik.enable=true"
+        - "traefik.frontend.rule=Host:rdmo.idai.world"
+        - "traefik.port=8000"
+  
+  db-backups:
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    volumes:
+        - db-backups:/backups
+    links:
+        - postgres
+    depends_on:
+        - postgres
+    environment:
+        - POSTGRES_HOST=db
+        - POSTGRES_DB=rdmo
+        - POSTGRES_USER=rdmo
+        - POSTGRES_PASSWORD=rdmo
+
+volumes:
+  db-data:
+    name: rdmo_db_data
+    external: true
+  db-backups:
+    name: rdmo_db_backups
+    external: true
+
+networks:
+  web:
+    external: true
